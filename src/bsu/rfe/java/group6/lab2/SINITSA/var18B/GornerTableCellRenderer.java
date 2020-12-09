@@ -30,7 +30,29 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table,Object value, boolean isSelected, boolean hasFocus, int row, int col) {
         String formattedDouble = formatter.format(value);
         label.setText(formattedDouble);
-       
+        if (col == 0 || col == 1) {
+            double col1 = (Double) table.getValueAt(row, col);
+            int Col1 = (int) col1;
+            col1 -= Col1;
+            double r;
+            if(col==0) {
+            	 r = (Double) table.getValueAt(row ,0);
+            }else {  r = (Double) table.getValueAt(row ,1);}
+            int sum = 0;
+            for(int i=0;i<4;i++) {
+            	r*=10;
+            	sum+=r%10;
+            	
+            }
+            if (sum%10==0&&sum!=0) {
+            	panel.setBackground(Color.GREEN);
+            	sum=0;
+            }
+            else panel.setBackground(Color.WHITE);
+            sum=0;
+            
+        }
+
         if(col==2){
             double y = (Double) table.getValueAt(row ,1);
             boolean check;
