@@ -71,7 +71,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
             panel.remove(0);
             panel.add(label);
         }
-        if(col == 1) {
+        if(col == 0 || col == 1) {
             if (needle != null && needle.equals(formattedDouble)) {
                 panel.setBackground(Color.RED);
             }
